@@ -16,8 +16,8 @@ Knowledge:
 
 
 Actions:
-	A->B: {A, B, NA,KAB}pk(B)
-	B->A: {|A, B,NA|}KAB
+	A->B: {A, B, NA, KAB}pk(B)
+	B->A: {|A, B, NA|}KAB
 	A->s: {|A, NA|}sk(A, s)
 	s->B: {A, NA, s}inv(pk(s))
 	B->A: {|A, B, NA, Payload|}KAB
