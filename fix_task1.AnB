@@ -13,7 +13,6 @@ Knowledge:
 	
 	where A!=B, A!=s, B!=s
 
-
 Actions:
 	A->B: {A, B, NA, KAB}pk(B)
 	B->A: {|A, B, NA, NB|}KAB

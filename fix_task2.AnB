@@ -2,7 +2,7 @@ Protocol: task2
 
 Types: 
 	Agent A, B, hm;
-	Number X, Y, g, M;
+	Number X, Y, g, M, NA, NB;
 	Function ck, sk
 
 Knowledge: 
@@ -11,10 +11,10 @@ Knowledge:
 	hm: A, B, hm, ck(A, hm), sk(A, hm), ck(B, hm), sk(B, hm), g
 
 Actions:
-	A->B:  A, B, exp(g,X), {|A, B, exp(g, X)|}ck(A, hm)
-	B->hm: {|A, B, exp(g,X), exp(g,Y), {|A, B, exp(g, X)|}ck(A, hm)|}ck(B, hm)
-	hm->B: {|B, A, {|B, A, exp(g, X), exp(g, Y)|}sk(A, hm)|}sk(B, hm)
-	B->A: exp(g, Y), {|B, A, exp(g, X),exp(g, Y)|}sk(A, hm)
+	A->B:  A, B, exp(g, X), {|A, B, NA, exp(g, X)|}ck(A, hm)
+	B->hm: {|A, B, NB, exp(g, X), exp(g, Y), {|A, B, NA, exp(g, X)|}ck(A, hm)|}ck(B, hm)
+	hm->B: {|B, A, NA, NB, {|B, A, NA, NB, exp(g, X), exp(g, Y)|}sk(A, hm)|}sk(B, hm)
+	B->A: exp(g, Y), {|B, A, NA, NB, exp(g, X),exp(g, Y)|}sk(A, hm)
 	A->B: {|M|}exp(exp(g, X), Y)
 
 Goals:
