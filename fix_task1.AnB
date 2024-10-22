@@ -2,7 +2,7 @@ Protocol: task1
 
 Types: 
 	Agent A, B, s;
-	Number NA, NB, Payload;
+	Number NA, NB, Payload, NS;
 	Symmetric_key KAB;
 	Function sk, pk
 
@@ -16,7 +16,7 @@ Knowledge:
 Actions:
 	A->B: {A, B, NA, KAB}pk(B)
 	B->A: {|A, B, NA, NB|}KAB
-	A->s: {|A, B, NA, NB|}sk(A, s)
+	A->s: {A, B, NA, NB, sk(A, s), NS} pk(s)
 	s->B: {A, B, NA, NB, s}inv(pk(s))
 	B->A: {|A, B, NA, NB, Payload|}KAB
 
@@ -25,3 +25,4 @@ Goals:
 	B authenticates A on NA
 	A authenticates B on Payload
 	Payload secret between A, B
+	sk(A,s) guessable secret between A,s
